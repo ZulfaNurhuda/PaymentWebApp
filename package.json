@@ -1,9 +1,9 @@
 {
-  "name": "website-inormasi-transaksi",
+  "name": "payment-app",
   "version": "1.0.0",
-  "description": "Website yang menampung semua tujuan transaksi Muhammad Zulfa Fauzan Nurhuda.",
+  "description": "Website Tujuan Pembayaran - Website yang menampung semua tujuan pembayaran, mulai dari rekening bank, akun dompet digital, link website donate, dan lain-lain.",
   "license": "ISC",
-  "author": "ZulfaNurhuda",
+  "author": "Zulfa Nurhuda",
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
@@ -13,6 +13,7 @@
   "dependencies": {
     "@google-cloud/local-auth": "^3.0.1",
     "cookie-parser": "^1.4.7",
+    "dotenv": "^16.5.0",
     "express": "^4.21.2",
     "fs": "^0.0.1-security",
     "googleapis": "^146.0.0",

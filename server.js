@@ -5,18 +5,18 @@ const { hashPassword, loadPassword, checkExpiry, logPasswordInfo } = require('./
 const db = require('./managers/database_managers'); // Impor dari database_managers.js
 
 const app = express();
-const PORT = 8000;
+const PORT = 1742;
 
 // Load credentials dari file credentials
-const config = require('./credentials.json');
+require('dotenv').config(`${process.cwd()}/.env`);
 
 // Kredensial untuk Google Sheets API
 const credentials = {
-    email: config.client_email, // Ganti dengan email service account
-    key: config.private_key, // Ganti dengan private key
+    email: process.env.CLIENT_EMAIL, // Ganti dengan email service account
+    key: process.env.PRIVATE_KEY, // Ganti dengan private key
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 };
-const spreadsheetId = "1bYmDrX22KVanTSHij294QyMoWEoDEBpHhc0kCj3iAh4"; // Ganti dengan ID spreadsheet
+const spreadsheetId = process.env.SPREADSHEET_ID; // Ganti dengan ID spreadsheet
 
 let sheets;
 let passwordData; // Variabel untuk menyimpan data password dari google sheets
@@ -207,7 +207,7 @@ let passwordData; // Variabel untuk menyimpan data password dari google sheets
     }, 60000); // Cek setiap 1 menit (untuk pengujian, ubah ke 3600000 untuk 1 jam)
 
     // Jalankan server
-    app.listen(PORT, "0.0.0.0", () => {
+    app.listen(PORT, () => {
         console.log('%c🚀 Server berjalan di http://localhost:%d', 'color: #1abc9c; font-weight: bold;', PORT);
     });
 })();
