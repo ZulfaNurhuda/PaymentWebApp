@@ -1,0 +1,761 @@
+:root {
+    --primary-color: #8a2be2;
+    --secondary-color: #4169e1;
+    --background-dark: #0f0f1a;
+    --card-bg: #191923b3;
+    --text-color: #ffffff;
+    --border-radius: 16px;
+    --accent-color: #ff55bb;
+    --success-color: #4CAF50;
+    --error-color: #f44336;
+    --warning-color: #ff9800;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--background-dark), #1a1a2e);
+    color: var(--text-color);
+    min-height: 100vh;
+    padding: 20px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header {
+    background: rgba(30, 30, 40, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.centered-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 800px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    background: rgba(30, 30, 40, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    text-align: center;
+    overflow: hidden;
+}
+
+@supports (backdrop-filter: blur(10px)) {
+    .header {
+        backdrop-filter: blur(10px);
+    }
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.3), rgba(255, 85, 187, 0));
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeInOut 4s infinite ease-in-out;
+    z-index: -1;
+}
+
+.emoji {
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: inline-block;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+.header h2 {
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.nav-tab {
+    flex: 1;
+    padding: 14px;
+    text-align: center;
+    background: rgba(40, 40, 50, 0.7);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-weight: 600;
+}
+
+.nav-tab:hover {
+    background: rgba(60, 60, 70, 0.8);
+    transform: translateY(-3px);
+}
+
+.nav-tab.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(65, 105, 225, 0.3);
+}
+
+.info-panel {
+    background: rgba(25, 25, 35, 0.7);
+    border-radius: var(--border-radius);
+    padding: 24px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.info-panel h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.note {
+    background: rgba(65, 105, 225, 0.1);
+    border-left: 3px solid var(--secondary-color);
+    padding: 12px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.note-number {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    font-weight: 700;
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.phone-number {
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.phone-number:hover {
+    opacity: 0.8;
+}
+
+.content-section {
+    background: rgba(30, 30, 40, 0.7);
+    border-radius: var(--border-radius);
+    padding: 24px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.content-section h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+}
+
+/* Gaya untuk description di bawah judul */
+.content-section .description {
+    font-size: 16px;
+    color: var(--text-color);
+    opacity: 0.9;
+    margin: 10px 0 20px 0;
+    /* Tambahkan margin atas dan bawah untuk spacing */
+    line-height: 1.6;
+    text-align: left;
+    background: rgba(65, 105, 225, 0.1);
+    border-left: 3px solid var(--secondary-color);
+    padding: 12px;
+    border-radius: 4px;
+}
+
+/* Card grid layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+/* Gaya untuk kartu tipe number */
+.number-type-card {
+    background: linear-gradient(135deg, rgba(40, 40, 60, 0.7), rgba(30, 30, 50, 0.7));
+    border-radius: var(--border-radius);
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.number-type-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(138, 43, 226, 0.25);
+}
+
+.number-type-card h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.number-type-card p {
+    font-size: 14px;
+    margin-bottom: 4px;
+    opacity: 0.8;
+}
+
+/* Gaya untuk container nomor */
+.number-container {
+    display: flex;
+    align-items: center;
+    /* Pastikan penyelarasan vertikal */
+    justify-content: space-between;
+    /* Ratakan teks dan tombol dengan jarak */
+    margin-bottom: 8px;
+    background: rgba(20, 20, 30, 0.5);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 8px;
+    /* Tambahkan padding untuk ruang yang lebih baik */
+    overflow: hidden;
+    width: 100%;
+    /* Pastikan container mengisi lebar penuh */
+}
+
+/* Gaya untuk teks nomor */
+.number {
+    font-size: 16px;
+    font-weight: 600;
+    flex-grow: 1;
+    /* Biarkan teks mengisi ruang yang tersisa */
+    padding: 0 8px;
+    /* Tambahkan padding horizontal untuk konsistensi */
+    white-space: nowrap;
+    /* Hindari teks membungkus */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Jika teks terlalu panjang, gunakan ellipsis */
+}
+
+/* Gaya untuk tombol Salin */
+.copy-btn,
+.open-btn {
+    background: rgba(138, 43, 226, 0.3);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    /* Sesuaikan padding agar serasi dengan teks */
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    /* Pastikan ukuran font sesuai dengan teks nomor */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    height: 100%;
+    /* Pastikan tinggi tombol sesuai dengan container */
+    border-radius: 8px;
+    /* Sudut membulat hanya di sisi kanan */
+    margin: 0;
+    /* Hapus margin tambahan */
+}
+
+.copy-btn:hover,
+.open-btn:hover {
+    background: rgba(138, 43, 226, 0.6);
+}
+
+/* .open-btn {
+    background: rgba(138, 43, 226, 0.3);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.open-btn:hover {
+    background: rgba(138, 43, 226, 0.6);
+} */
+
+.owner {
+    font-size: 14px;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+/* Gaya untuk kartu tipe link */
+.link-type-card {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(40, 40, 60, 0.7), rgba(30, 30, 50, 0.7));
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.link-type-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 20px rgba(138, 43, 226, 0.2);
+}
+
+.link-type-card h4 {
+    flex: 1;
+    font-size: 16px;
+}
+
+.donation-link {
+    flex: 2;
+    display: flex;
+    align-items: center;
+}
+
+.donation-link a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+}
+
+.donation-link a:hover {
+    opacity: 0.8;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 20px 0;
+}
+
+.glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary-color) 0%, rgba(138, 43, 226, 0) 70%);
+    opacity: 0.1;
+    filter: blur(40px);
+    z-index: -1;
+}
+
+#glow1 {
+    top: -100px;
+    left: 20%;
+}
+
+#glow2 {
+    bottom: 20%;
+    right: 10%;
+    background: radial-gradient(circle, var(--accent-color) 0%, rgba(255, 85, 187, 0) 70%);
+}
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+    animation: slideIn 0.3s ease, fadeOut 0.5s ease 1.5s forwards;
+}
+
+#toast {
+    background: var(--success-color);
+}
+
+#toast-error {
+    background: var(--error-color);
+}
+
+#illegal-copy {
+    background: var(--warning-color);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-card {
+    background: linear-gradient(135deg, rgba(40, 40, 60, 0.8), rgba(30, 30, 50, 0.8));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 16px 24px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(138, 43, 226, 0.2);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(138, 43, 226, 0.3);
+}
+
+.footer-card::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.3), rgba(255, 85, 187, 0));
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeInOut 4s infinite ease-in-out;
+    z-index: -1;
+}
+
+.footer-card p {
+    font-size: 14px;
+    font-weight: 500;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .centered-header {
+        width: 90%;
+        padding: 16px;
+    }
+
+    .nav-tabs {
+        flex-direction: column;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .link-type-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .donation-link {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .donation-link a {
+        white-space: normal;
+        word-break: break-all;
+    }
+
+    .footer-card {
+        max-width: 100%;
+        margin: 0 10px;
+    }
+}
+
+/* Styling untuk dialog SweetAlert2 notifikasi biasa */
+body.swal2-shown>[aria-hidden='true'] {
+    transition: 0.2s filter;
+    filter: blur(5px);
+}
+
+.swal2-custom {
+    border-radius: var(--border-radius) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+    background: linear-gradient(135deg, rgba(25, 25, 40), rgba(35, 35, 55)) !important;
+    max-width: 400px !important;
+    padding: 25px !important;
+    border: 1px solid rgba(138, 43, 226, 0.1) !important;
+}
+
+.swal2-title-custom {
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    font-weight: 800 !important;
+    font-size: 30px !important;
+    text-align: center !important;
+    text-shadow: 0 2px 6px rgba(138, 43, 226, 0.4) !important;
+    margin-bottom: 20px !important;
+}
+
+.swal2-text-custom {
+    color: var(--text-color) !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    padding-bottom: 20px !important;
+    line-height: 1.5 !important;
+}
+
+.swal2-copyable-text {
+    background: rgba(20, 20, 30, 0.8) !important;
+    border: 2px solid rgba(138, 43, 226, 0.2) !important;
+    border-radius: var(--border-radius) !important;
+    padding: 15px !important;
+    margin: 15px 0 !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    letter-spacing: 1px !important;
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    cursor: text !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+    width: 100 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 60px !important;
+    max-height: 120px !important;
+}
+
+.swal2-copyable-text:hover {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 6px 15px rgba(138, 43, 226, 0.3) !important;
+    transform: translateY(-2px) !important;
+}
+
+.swal2-copyable-text:focus {
+    outline: none !important;
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 6px 15px rgba(255, 85, 187, 0.4) !important;
+    transform: scale(1.02) !important;
+}
+
+.swal2-confirm-custom {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) !important;
+    border: none !important;
+    padding: 14px 28px !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    border-radius: 30px !important;
+    color: #ffffff !important;
+    transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease !important;
+    box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4) !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 25px !important;
+}
+
+.swal2-confirm-custom:hover {
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color)) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 30px rgba(255, 85, 187, 0.6) !important;
+}
+
+@media screen and (max-width: 480px) {
+    .swal2-custom {
+        max-width: 300px !important;
+        padding: 15px !important;
+    }
+
+    .swal2-title-custom {
+        font-size: 24px !important;
+    }
+
+    .swal2-text-custom {
+        font-size: 14px !important;
+    }
+
+    .swal2-copyable-text {
+        font-size: 16px !important;
+        padding: 10px !important;
+        min-height: 50px !important;
+        max-height: 100px !important;
+    }
+
+    .swal2-confirm-custom {
+        padding: 10px 20px !important;
+        font-size: 16px !important;
+        border-radius: 25px !important;
+        margin-top: 15px !important;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .swal2-custom {
+        max-width: 350px !important;
+        padding: 20px !important;
+    }
+
+    .swal2-title-custom {
+        font-size: 28px !important;
+    }
+
+    .swal2-text-custom {
+        font-size: 15px !important;
+    }
+
+    .swal2-copyable-text {
+        font-size: 18px !important;
+        padding: 12px !important;
+        min-height: 55px !important;
+        max-height: 110px !important;
+    }
+
+    .swal2-confirm-custom {
+        padding: 12px 22px !important;
+        font-size: 17px !important;
+        margin-top: 20px !important;
+    }
+}

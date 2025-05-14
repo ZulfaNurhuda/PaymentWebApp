@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keamanan Akun</title>
+    <link rel="stylesheet" href="security.css">
+    <link rel="icon" href="/assets/wallet.ico" type="image/x-icon">
+    <meta name="description" content="Tujuan pembayaran kepada Muhammad Zulfa Fauzan Nurhuda.">
+</head>
+
+<body>
+    <div class="glow" id="glow1"></div>
+    <div class="glow" id="glow2"></div>
+    <div class="secret-container">
+        <div class="secret-card">
+            <div class="emoji">🔐</div>
+            <h1>Keamanan Akun</h1>
+            <p>Frasa rahasia:</p> <input type="password" id="secret-phrase" placeholder="Masukkan frasa..."
+                class="secret-input"> <button class="open-btn" onclick="checkSecurityPhrase()">Buka</button>
+            <p id="error-message" style="color: var(--accent-color); display: none; margin-top: 1em;">Frasa rahasia salah! Silakan coba
+                lagi.</p>
+        </div>
+    </div>
+    <script src="security.js"></script>
+</body>
+
+</html>

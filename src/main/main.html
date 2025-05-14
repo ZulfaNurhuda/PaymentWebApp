@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tujuan Pembayaran</title>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="icon" href="/assets/wallet.ico" type="image/x-icon">
+    <meta name="description" content="Tujuan pembayaran kepada Muhammad Zulfa Fauzan Nurhuda.">
+</head>
+
+<body>
+    <div class="glow" id="glow1"></div>
+    <div class="glow" id="glow2"></div>
+    <div class="container">
+        <div class="header">
+            <div class="emoji">💸</div>
+            <h1>Tujuan Pembayaran</h1>
+            <h2>Muhammad Zulfa Fauzan Nurhuda</h2>
+        </div> <!-- Kontainer untuk tab -->
+        <div class="nav-tabs" role="tablist" id="nav-tabs-container"></div> <!-- Kontainer untuk info panel -->
+        <div class="info-panel">
+            <h2>Data Sedang Dimuat</h2>
+            <p>Mohon Tunggu Sebentar</p>
+            <div id="tab-info-container"></div>
+        </div> <!-- Kontainer untuk konten tab -->
+        <div id="tab-content-container"></div>
+        <footer>
+            <div class="footer-card">
+                <p id="copyright"></p>
+            </div>
+        </footer>
+    </div>
+    <div id="toast" class="toast">Tersalin ke clipboard!</div> <!-- Impor SweetAlert2 dari CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

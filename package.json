@@ -1,0 +1,22 @@
+{
+  "name": "website-inormasi-transaksi",
+  "version": "1.0.0",
+  "description": "Website yang menampung semua tujuan transaksi Muhammad Zulfa Fauzan Nurhuda.",
+  "license": "ISC",
+  "author": "ZulfaNurhuda",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@google-cloud/local-auth": "^3.0.1",
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security",
+    "googleapis": "^146.0.0",
+    "moment-timezone": "^0.5.47",
+    "random-words": "^2.0.1"
+  }
+}
